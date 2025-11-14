@@ -15,6 +15,11 @@ export function DrawerMenu({ items, onItemClick, onBack, onClose }: DrawerMenuPr
 
   return (
     <div className="flex flex-col pb-6">
+      {/* Drag handle indicator - visible on mobile */}
+      <div className="flex justify-center pt-3 pb-2 md:hidden">
+        <div className="w-10 h-1 bg-gray-300 rounded-full" aria-hidden="true" />
+      </div>
+
       {!isRootLevel && (
         <div className="flex items-center px-4 py-2.5 flex-shrink-0">
           <button
@@ -26,6 +31,10 @@ export function DrawerMenu({ items, onItemClick, onBack, onClose }: DrawerMenuPr
             <span className="ml-1.5 text-sm font-normal">Back</span>
           </button>
         </div>
+      )}
+      
+      {isRootLevel && (
+        <div className="h-2.5" aria-hidden="true" />
       )}
 
       <nav className="overflow-y-auto max-h-[calc(100vh-8rem)]" role="menu">
