@@ -128,12 +128,12 @@ export function DrawerDemo() {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <div>
+    <div className="flex min-h-[calc(100vh-8rem)] items-center justify-center">
       <button
         onClick={() => setIsOpen(true)}
-        className="rounded bg-blue-600 px-4 py-2 text-white hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2"
+        className="rounded-full bg-blue-500 px-6 py-3 text-base font-medium text-white transition-colors active:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 md:px-8 md:py-3 md:hover:bg-blue-700"
       >
-        Open Drawer
+        Open Menu
       </button>
       <Drawer menu={sampleMenu} open={isOpen} onClose={() => setIsOpen(false)} />
     </div>
