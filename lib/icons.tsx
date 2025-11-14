@@ -29,6 +29,7 @@ import {
   Server,
   Zap,
   Target,
+  Database,
 } from "lucide-react";
 
 /**
@@ -75,6 +76,7 @@ export function getIcon(iconName: string): React.ReactNode {
     server: <Server className={iconClass} />,
     zap: <Zap className={iconClass} />,
     target: <Target className={iconClass} />,
+    database: <Database className={iconClass} />,
   };
 
   return icons[iconName] || null;

@@ -121,7 +121,26 @@
             "label": "Data Strategy",
             "description": "Data governance and strategy development",
             "icon": "target",
-            "onClick": "navigateToDataStrategy"
+            "children": [
+              {
+                "id": "data-strategy-1",
+                "label": "Data Governance",
+                "description": "Data quality, privacy, and compliance frameworks",
+                "icon": "cybersecurity"
+              },
+              {
+                "id": "data-strategy-2",
+                "label": "Data Architecture",
+                "description": "Enterprise data architecture design",
+                "icon": "server"
+              },
+              {
+                "id": "data-strategy-3",
+                "label": "Data Lake Strategy",
+                "description": "Data lake design and implementation",
+                "icon": "database"
+              }
+            ]
           },
           {
             "id": "data-analytics-2",
