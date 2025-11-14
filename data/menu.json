@@ -1,0 +1,228 @@
+[
+  {
+    "id": "home",
+    "label": "Home",
+    "description": "Welcome to our comprehensive platform",
+    "icon": "home",
+    "onClick": "navigateToHome"
+  },
+  {
+    "id": "products-services",
+    "label": "Products & Services",
+    "description": "Explore our comprehensive offerings",
+    "icon": "box",
+    "children": [
+      {
+        "id": "products-services-1",
+        "label": "Software Solutions",
+        "description": "Custom software development and deployment",
+        "icon": "code",
+        "children": []
+      },
+      {
+        "id": "products-services-2",
+        "label": "Cloud Services",
+        "description": "Scalable cloud infrastructure solutions",
+        "icon": "cloud",
+        "children": []
+      },
+      {
+        "id": "products-services-3",
+        "label": "Consulting",
+        "description": "Expert guidance and strategic support",
+        "icon": "users",
+        "children": []
+      }
+    ]
+  },
+  {
+    "id": "industry-solutions",
+    "label": "Industry Solutions",
+    "description": "Specialized solutions for different industries",
+    "icon": "building",
+    "children": [
+      {
+        "id": "industry-solutions-1",
+        "label": "Healthcare",
+        "description": "Healthcare technology solutions",
+        "icon": "medical",
+        "children": []
+      },
+      {
+        "id": "industry-solutions-2",
+        "label": "Finance",
+        "description": "Financial services and fintech solutions",
+        "icon": "finance",
+        "children": []
+      },
+      {
+        "id": "industry-solutions-3",
+        "label": "Retail",
+        "description": "Retail and e-commerce solutions",
+        "icon": "retail",
+        "children": []
+      }
+    ]
+  },
+  {
+    "id": "company",
+    "label": "Company",
+    "description": "Learn about our organization and culture",
+    "icon": "users",
+    "children": [
+      {
+        "id": "company-1",
+        "label": "About Us",
+        "description": "Our story, mission, and values",
+        "icon": "info",
+        "children": []
+      },
+      {
+        "id": "company-2",
+        "label": "Leadership",
+        "description": "Meet our leadership team",
+        "icon": "leadership",
+        "children": []
+      },
+      {
+        "id": "company-3",
+        "label": "Careers",
+        "description": "Join our team",
+        "icon": "careers",
+        "children": []
+      }
+    ]
+  },
+  {
+    "id": "resources",
+    "label": "Resources",
+    "description": "Knowledge base, tools, and learning materials",
+    "icon": "book",
+    "children": [
+      {
+        "id": "resources-1",
+        "label": "Documentation",
+        "description": "Technical documentation and guides",
+        "icon": "docs",
+        "children": []
+      },
+      {
+        "id": "resources-2",
+        "label": "Blog",
+        "description": "Latest articles and insights",
+        "icon": "blog",
+        "children": []
+      },
+      {
+        "id": "resources-3",
+        "label": "Case Studies",
+        "description": "Success stories and case studies",
+        "icon": "case-study",
+        "children": []
+      }
+    ]
+  },
+  {
+    "id": "support",
+    "label": "Support",
+    "description": "Get help and support when you need it",
+    "icon": "help",
+    "children": [
+      {
+        "id": "support-1",
+        "label": "Help Center",
+        "description": "FAQs and help articles",
+        "icon": "help-center",
+        "children": []
+      },
+      {
+        "id": "support-2",
+        "label": "Contact Support",
+        "description": "Reach out to our support team",
+        "icon": "contact",
+        "children": []
+      },
+      {
+        "id": "support-3",
+        "label": "System Status",
+        "description": "Check system status and uptime",
+        "icon": "status",
+        "children": []
+      }
+    ]
+  },
+  {
+    "id": "research-innovation",
+    "label": "Research & Innovation",
+    "description": "Cutting-edge research and innovation initiatives",
+    "icon": "lightbulb",
+    "children": [
+      {
+        "id": "research-innovation-1",
+        "label": "Research Labs",
+        "description": "Our research and development labs",
+        "icon": "lab",
+        "children": []
+      },
+      {
+        "id": "research-innovation-2",
+        "label": "Innovation Programs",
+        "description": "Innovation initiatives and programs",
+        "icon": "innovation",
+        "children": []
+      }
+    ]
+  },
+  {
+    "id": "sustainability",
+    "label": "Sustainability",
+    "description": "Environmental responsibility and sustainable technology",
+    "icon": "leaf",
+    "children": [
+      {
+        "id": "sustainability-1",
+        "label": "Our Commitment",
+        "description": "Our sustainability goals and commitments",
+        "icon": "commitment",
+        "children": []
+      },
+      {
+        "id": "sustainability-2",
+        "label": "Green Initiatives",
+        "description": "Environmental initiatives and programs",
+        "icon": "green",
+        "children": []
+      }
+    ]
+  },
+  {
+    "id": "investor-relations",
+    "label": "Investor Relations",
+    "description": "Financial information and investor resources",
+    "icon": "chart",
+    "children": [
+      {
+        "id": "investor-relations-1",
+        "label": "Financial Reports",
+        "description": "Quarterly and annual reports",
+        "icon": "reports",
+        "children": []
+      },
+      {
+        "id": "investor-relations-2",
+        "label": "Investor Resources",
+        "description": "Resources for investors",
+        "icon": "investor",
+        "children": []
+      }
+    ]
+  },
+  {
+    "id": "contact",
+    "label": "Contact",
+    "description": "Get in touch with our team",
+    "icon": "envelope",
+    "onClick": "navigateToContact"
+  }
+]
+

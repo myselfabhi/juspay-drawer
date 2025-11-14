@@ -20,7 +20,6 @@ export function Drawer({ menu, open, onClose, width, className }: DrawerProps) {
   const [menuHistory, setMenuHistory] = useState<DrawerItem[][]>([menu]);
   const currentMenu = menuHistory[menuHistory.length - 1];
 
-  // Prevent body scroll when drawer is open (mobile)
   useEffect(() => {
     if (open) {
       document.body.style.overflow = "hidden";
@@ -32,7 +31,6 @@ export function Drawer({ menu, open, onClose, width, className }: DrawerProps) {
     };
   }, [open]);
 
-  // Reset menu history when drawer closes
   useEffect(() => {
     if (!open) {
       setMenuHistory([menu]);
@@ -41,10 +39,8 @@ export function Drawer({ menu, open, onClose, width, className }: DrawerProps) {
 
   const handleItemClick = (item: DrawerItem) => {
     if (item.children && item.children.length > 0) {
-      // Navigate to child menu
       setMenuHistory([...menuHistory, item.children]);
     } else if (item.onClick) {
-      // Execute leaf item action
       item.onClick();
     }
   };
@@ -64,16 +60,14 @@ export function Drawer({ menu, open, onClose, width, className }: DrawerProps) {
       aria-modal="true"
       aria-label="Navigation drawer"
     >
-      {/* Backdrop */}
       <div
-        className="absolute inset-0 bg-black/50"
+        className="absolute inset-0 bg-black/40"
         onClick={onClose}
         aria-hidden="true"
       />
 
-      {/* Drawer - Mobile-first: full width on mobile, custom width on desktop */}
       <div
-        className="absolute left-0 top-0 h-full w-full bg-white shadow-xl md:w-[85vw] md:max-w-md"
+        className="absolute left-4 top-4 bottom-4 w-[calc(100%-2rem)] bg-white shadow-xl rounded-2xl md:w-[85vw] md:max-w-md md:left-auto md:right-4 md:top-4 md:bottom-4 md:rounded-xl"
         style={width ? { width: `${width}px` } : undefined}
       >
         <DrawerMenu
