@@ -70,7 +70,29 @@
             "label": "Training & Workshops",
             "description": "Team skill development and knowledge transfer",
             "icon": "graduation-cap",
-            "onClick": "navigateToTrainingWorkshops"
+            "children": [
+              {
+                "id": "training-1",
+                "label": "Technical Training",
+                "description": "Programming and technology skills",
+                "icon": "code",
+                "onClick": "navigateToTechnicalTraining"
+              },
+              {
+                "id": "training-2",
+                "label": "Agile Methodologies",
+                "description": "Scrum, Kanban, and agile practices",
+                "icon": "target",
+                "onClick": "navigateToAgileMethodologies"
+              },
+              {
+                "id": "training-3",
+                "label": "Leadership & Management",
+                "description": "Technical leadership and team management",
+                "icon": "users",
+                "onClick": "navigateToLeadershipManagement"
+              }
+            ]
           }
         ]
       },
@@ -93,7 +115,29 @@
         "label": "Data & Analytics Consulting",
         "description": "Data strategy, analytics, and business intelligence",
         "icon": "bar-chart",
-        "onClick": "navigateToDataAnalytics"
+        "children": [
+          {
+            "id": "data-analytics-1",
+            "label": "Data Strategy",
+            "description": "Data governance and strategy development",
+            "icon": "target",
+            "onClick": "navigateToDataStrategy"
+          },
+          {
+            "id": "data-analytics-2",
+            "label": "Advanced Analytics",
+            "description": "Machine learning and predictive analytics",
+            "icon": "lightbulb",
+            "onClick": "navigateToAdvancedAnalytics"
+          },
+          {
+            "id": "data-analytics-3",
+            "label": "Business Intelligence",
+            "description": "BI platform implementation and optimization",
+            "icon": "bar-chart",
+            "onClick": "navigateToBusinessIntelligence"
+          }
+        ]
       },
       {
         "id": "products-services-7",

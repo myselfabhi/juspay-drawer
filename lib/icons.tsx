@@ -28,6 +28,7 @@ import {
   GraduationCap,
   Server,
   Zap,
+  Target,
 } from "lucide-react";
 
 /**
@@ -73,6 +74,7 @@ export function getIcon(iconName: string): React.ReactNode {
     "graduation-cap": <GraduationCap className={iconClass} />,
     server: <Server className={iconClass} />,
     zap: <Zap className={iconClass} />,
+    target: <Target className={iconClass} />,
   };
 
   return icons[iconName] || null;
