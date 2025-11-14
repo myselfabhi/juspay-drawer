@@ -163,7 +163,29 @@
         "label": "DevOps & Platform Engineering",
         "description": "DevOps transformation and platform engineering",
         "icon": "settings",
-        "onClick": "navigateToDevOps"
+        "children": [
+          {
+            "id": "devops-1",
+            "label": "DevOps Transformation",
+            "description": "Organizational DevOps adoption and culture",
+            "icon": "zap",
+            "onClick": "navigateToDevOpsTransformation"
+          },
+          {
+            "id": "devops-2",
+            "label": "Platform Engineering",
+            "description": "Internal developer platform development",
+            "icon": "server",
+            "onClick": "navigateToPlatformEngineering"
+          },
+          {
+            "id": "devops-3",
+            "label": "Cloud Migration",
+            "description": "Cloud adoption and migration strategies",
+            "icon": "cloud",
+            "onClick": "navigateToCloudMigration"
+          }
+        ]
       },
       {
         "id": "products-services-8",
