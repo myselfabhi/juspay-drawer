@@ -25,6 +25,7 @@ import {
   Shield,
   Settings,
   BarChart3,
+  GraduationCap,
 } from "lucide-react";
 
 /**
@@ -67,6 +68,7 @@ export function getIcon(iconName: string): React.ReactNode {
     settings: <Settings className={iconClass} />,
     "bar-chart": <BarChart3 className={iconClass} />,
     cybersecurity: <Shield className={iconClass} />,
+    "graduation-cap": <GraduationCap className={iconClass} />,
   };
 
   return icons[iconName] || null;

@@ -31,7 +31,28 @@
         "label": "Consulting Services",
         "description": "Expert guidance and strategic support",
         "icon": "users",
-        "onClick": "navigateToConsultingServices"
+        "children": [
+          {
+            "id": "consulting-1",
+            "label": "Technical Consulting",
+            "description": "Architecture and implementation guidance",
+            "icon": "code",
+            "onClick": "navigateToTechnicalConsulting"
+          },
+          {
+            "id": "consulting-2",
+            "label": "Business Strategy",
+            "description": "Digital transformation and business planning",
+            "icon": "chart"
+          },
+          {
+            "id": "consulting-3",
+            "label": "Training & Workshops",
+            "description": "Team skill development and knowledge transfer",
+            "icon": "graduation-cap",
+            "onClick": "navigateToTrainingWorkshops"
+          }
+        ]
       },
       {
         "id": "products-services-4",
