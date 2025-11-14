@@ -17,21 +17,56 @@
         "label": "Software Solutions",
         "description": "Custom software development and deployment",
         "icon": "code",
-        "children": []
+        "onClick": "navigateToSoftwareSolutions"
       },
       {
         "id": "products-services-2",
-        "label": "Cloud Services",
-        "description": "Scalable cloud infrastructure solutions",
+        "label": "Cloud & Infrastructure",
+        "description": "Scalable cloud solutions and infrastructure",
         "icon": "cloud",
-        "children": []
+        "onClick": "navigateToCloudInfrastructure"
       },
       {
         "id": "products-services-3",
-        "label": "Consulting",
+        "label": "Consulting Services",
         "description": "Expert guidance and strategic support",
         "icon": "users",
-        "children": []
+        "onClick": "navigateToConsultingServices"
+      },
+      {
+        "id": "products-services-4",
+        "label": "Digital Transformation",
+        "description": "Comprehensive digital transformation strategies",
+        "icon": "lightbulb",
+        "onClick": "navigateToDigitalTransformation"
+      },
+      {
+        "id": "products-services-5",
+        "label": "Cybersecurity Consulting",
+        "description": "Comprehensive cybersecurity services and solutions",
+        "icon": "cybersecurity",
+        "onClick": "navigateToCybersecurity"
+      },
+      {
+        "id": "products-services-6",
+        "label": "Data & Analytics Consulting",
+        "description": "Data strategy, analytics, and business intelligence",
+        "icon": "bar-chart",
+        "onClick": "navigateToDataAnalytics"
+      },
+      {
+        "id": "products-services-7",
+        "label": "DevOps & Platform Engineering",
+        "description": "DevOps transformation and platform engineering",
+        "icon": "settings",
+        "onClick": "navigateToDevOps"
+      },
+      {
+        "id": "products-services-8",
+        "label": "Support & Maintenance",
+        "description": "Ongoing maintenance and support services",
+        "icon": "settings",
+        "onClick": "navigateToSupportMaintenance"
       }
     ]
   },

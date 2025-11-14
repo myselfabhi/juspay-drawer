@@ -23,13 +23,15 @@ import {
   CheckCircle,
   FlaskConical,
   Shield,
+  Settings,
+  BarChart3,
 } from "lucide-react";
 
 /**
  * Icon component mapper - converts icon string names to Lucide React components
  */
 export function getIcon(iconName: string): React.ReactNode {
-  const iconClass = "h-5 w-5 text-gray-600";
+  const iconClass = "h-5 w-5 text-gray-700 stroke-[1.5]";
 
   const icons: Record<string, React.ReactNode> = {
     home: <Home className={iconClass} />,
@@ -62,6 +64,9 @@ export function getIcon(iconName: string): React.ReactNode {
     green: <Leaf className={iconClass} />,
     reports: <FileText className={iconClass} />,
     investor: <TrendingUp className={iconClass} />,
+    settings: <Settings className={iconClass} />,
+    "bar-chart": <BarChart3 className={iconClass} />,
+    cybersecurity: <Shield className={iconClass} />,
   };
 
   return icons[iconName] || null;

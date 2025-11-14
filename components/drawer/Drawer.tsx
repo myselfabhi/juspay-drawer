@@ -67,7 +67,7 @@ export function Drawer({ menu, open, onClose, width, className }: DrawerProps) {
       />
 
       <div
-        className="absolute left-4 top-4 bottom-4 w-[calc(100%-2rem)] bg-white shadow-xl rounded-2xl md:w-[85vw] md:max-w-md md:left-auto md:right-4 md:top-4 md:bottom-4 md:rounded-xl"
+        className="absolute left-4 top-4 bottom-4 w-[calc(100%-2rem)] bg-white shadow-xl rounded-b-2xl md:w-[85vw] md:max-w-md md:left-auto md:right-4 md:top-4 md:bottom-4 md:rounded-b-xl"
         style={width ? { width: `${width}px` } : undefined}
       >
         <DrawerMenu
