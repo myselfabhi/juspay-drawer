@@ -36,7 +36,7 @@ import {
  * Icon component mapper - converts icon string names to Lucide React components
  */
 export function getIcon(iconName: string): React.ReactNode {
-  const iconClass = "h-5 w-5 text-gray-700 stroke-[1.5]";
+  const iconClass = "h-4 w-4 text-gray-700 stroke-[1.5]";
 
   const icons: Record<string, React.ReactNode> = {
     home: <Home className={iconClass} />,
