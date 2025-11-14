@@ -5,6 +5,23 @@ import { motion, AnimatePresence } from "framer-motion";
 import type { DrawerProps, DrawerItem } from "@/types/menu";
 import { DrawerMenu } from "./DrawerMenu";
 
+// Hook to detect if we're on tablet or larger
+function useIsTabletOrLarger() {
+  const [isTabletOrLarger, setIsTabletOrLarger] = useState(false);
+
+  useEffect(() => {
+    const checkSize = () => {
+      setIsTabletOrLarger(window.innerWidth >= 768); // md breakpoint
+    };
+    
+    checkSize();
+    window.addEventListener("resize", checkSize);
+    return () => window.removeEventListener("resize", checkSize);
+  }, []);
+
+  return isTabletOrLarger;
+}
+
 /**
  * Accessible nested menu drawer component
  * 
@@ -19,6 +36,7 @@ import { DrawerMenu } from "./DrawerMenu";
  */
 export function Drawer({ menu, open, onClose, width, className }: DrawerProps) {
   const [menuHistory, setMenuHistory] = useState<DrawerItem[][]>([menu]);
+  const isTabletOrLarger = useIsTabletOrLarger();
   const currentMenu = menuHistory[menuHistory.length - 1];
 
   useEffect(() => {
@@ -72,11 +90,11 @@ export function Drawer({ menu, open, onClose, width, className }: DrawerProps) {
           />
 
           <motion.div
-            initial={{ y: "100%" }}
-            animate={{ y: 0 }}
-            exit={{ y: "100%" }}
+            initial={isTabletOrLarger ? { x: "100%" } : { y: "100%" }}
+            animate={isTabletOrLarger ? { x: 0 } : { y: 0 }}
+            exit={isTabletOrLarger ? { x: "100%" } : { y: "100%" }}
             transition={{ type: "spring", damping: 25, stiffness: 200 }}
-            className="absolute left-4 bottom-4 w-[calc(100%-2rem)] max-h-[calc(100vh-2rem)] bg-white shadow-xl rounded-2xl overflow-hidden md:w-[85vw] md:max-w-md md:left-auto md:right-4 md:bottom-4 md:rounded-xl"
+            className="absolute left-4 bottom-4 w-[calc(100%-2rem)] max-h-[calc(100vh-2rem)] bg-white shadow-xl rounded-2xl overflow-hidden md:w-[85vw] md:max-w-md md:left-auto md:right-4 md:top-4 md:bottom-4 md:h-auto md:max-h-[calc(100vh-2rem)]"
             style={width ? { width: `${width}px` } : undefined}
           >
             <DrawerMenu
