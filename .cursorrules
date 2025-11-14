@@ -1,0 +1,225 @@
+# ---------------------------------------------------------
+# .cursorrules
+# Cursor rules for a Next.js (App Router) + TypeScript repo.
+# Focus on modular, accessible, secure, and high-performance code.
+# ---------------------------------------------------------
+
+---
+Project: "Next.js + TypeScript Application"
+Description: >
+  Modern Next.js (App Router) application using React Server Components,
+  Client Components where required, API route handlers, edge/runtime
+  optimizations, accessibility, performance budgets, and modular code.
+
+# ---------------------------------------------------------
+# 1. TOP-LEVEL PRIORITIES (always follow)
+# ---------------------------------------------------------
+Priorities:
+  - "Use Server Components by default; only add 'use client' when necessary."
+  - "Write clean, modular, composable code with small components."
+  - "Prefer TypeScript with strict types. Avoid any."
+  - "Accessibility-first UI (focus states, ARIA, keyboard navigation)."
+  - "Secure code: never leak env vars, API keys, or secrets."
+  - "Performance: minimize bundles, avoid unnecessary client-side JS."
+  - "API handlers must be typed, validated, and safe."
+  - "SEO: use metadata API correctly in the App Router."
+  - "Use Edge runtime only when beneficial (e.g., low-latency reads)."
+
+# ---------------------------------------------------------
+# 2. GENERAL CODING CONVENTIONS
+# ---------------------------------------------------------
+Coding:
+  - "Use React Server Components (RSC) by default."
+  - "Add 'use client' ONLY for interactive components using state, effects, event listeners."
+  - "Never mix server-side code (DB queries, secrets) inside client components."
+  - "Prefer async functions inside server components for data fetching."
+  - "Use Suspense for async UI boundaries."
+  - "Use /app layout conventions: layout.tsx, template.tsx, loading.tsx, error.tsx."
+  - "Prefer file-based routing, colocated components, colocated tests."
+  - "Use named exports instead of default unless it improves clarity."
+
+# ---------------------------------------------------------
+# 3. FILE STRUCTURE RULES (App Router)
+# ---------------------------------------------------------
+FileStructure:
+  - "All pages live under /app."
+  - "Use route-specific components inside /app/(routes)/x."
+  - "Put shared UI in /components."
+  - "Put global context providers in /providers."
+  - "Put server logic / DB access in /lib or /server."
+  - "API routes go in /app/api/**/route.ts."
+  - "Use a separate /types folder for shared types."
+
+ExampleStructure:
+  - "/app"
+  - "/app/api/users/route.ts"
+  - "/components/Button.tsx"
+  - "/components/drawer/Drawer.tsx"
+  - "/lib/db.ts"
+  - "/lib/validators.ts"
+  - "/server/auth.ts"
+  - "/types/global.d.ts"
+
+# ---------------------------------------------------------
+# 4. TYPESCRIPT RULES
+# ---------------------------------------------------------
+TypeScript:
+  - "Use interfaces for objects & Props."
+  - "Always define types for API request bodies & responses."
+  - "Use zod or yup for input validation (preferred: zod)."
+  - "Avoid 'any'. Use unknown + narrowing when necessary."
+  - "Use readonly arrays and readonly props for immutability."
+  - "Export reusable types from a barrel file."
+
+Example:
+  |
+    export interface DrawerItem {
+      id: string;
+      label: string;
+      icon?: React.ReactNode;
+      children?: DrawerItem[];
+      onClick?: () => void;
+    }
+
+# ---------------------------------------------------------
+# 5. ACCESSIBILITY RULES (required)
+# ---------------------------------------------------------
+Accessibility:
+  - "Focus states must be clearly visible."
+  - "Use semantic roles: nav, menu, menuitem, button, list, listitem."
+  - "Keyboard navigation must be fully supported."
+  - "Use aria-expanded, aria-controls, aria-label where needed."
+  - "Trap focus inside modals/drawers."
+  - "Ensure drawers and menus work with screen readers."
+
+# ---------------------------------------------------------
+# 6. NEXT.JS PERFORMANCE RULES
+# ---------------------------------------------------------
+Performance:
+  - "Use Server Components to minimize JS sent to the client."
+  - "Use generateMetadata() for SEO — no <Head> in App Router."
+  - "Use next/image instead of <img>."
+  - "Use caching: fetch(url, { next: { revalidate: X } })"
+  - "Use dynamic='force-static' or dynamic='force-dynamic' intentionally."
+  - "Never bundle large libs into client components unnecessarily."
+  - "Enable streaming with Suspense & async components."
+
+# ---------------------------------------------------------
+# 7. CLIENT COMPONENT RULES
+# ---------------------------------------------------------
+ClientComponents:
+  - "Add 'use client' at the very top (first line)."
+  - "Only use for: useState, useEffect, event listeners, animations, gesture handling."
+  - "Do NOT include database calls, server logic, or secret env vars."
+
+Avoid:
+  - "Large contexts inside client components."
+  - "Fetching data client-side when server-side is possible."
+
+# ---------------------------------------------------------
+# 8. API ROUTING RULES (App Router: /app/api/**/route.ts)
+# ---------------------------------------------------------
+APIRules:
+  - "Use NextRequest and NextResponse from next/server."
+  - "Validate all incoming JSON using zod or schema."
+  - "Never return raw server errors; always wrap in try/catch."
+  - "Never expose stack traces to the client."
+  - "If using Prisma or ORM, keep DB calls inside /lib or /server."
+  - "Set correct HTTP status codes."
+  - "Avoid blocking operations in Edge runtime."
+
+Example:
+  |
+    import { NextResponse } from 'next/server';
+    import { z } from 'zod';
+
+    const schema = z.object({ name: z.string() });
+
+    export async function POST(req: Request) {
+      try {
+        const body = schema.parse(await req.json());
+        return NextResponse.json({ ok: true, body });
+      } catch (e) {
+        return NextResponse.json({ error: 'Invalid input' }, { status: 400 });
+      }
+    }
+
+# ---------------------------------------------------------
+# 9. SECURITY RULES (critical)
+# ---------------------------------------------------------
+Security:
+  - "Never output or log environment variables."
+  - "Never expose secrets to the client."
+  - "Use server actions for sensitive operations."
+  - "Validate user input (zod)."
+  - "Sanitize HTML when rendering dynamic content."
+  - "Hash passwords if applicable; never store plaintext."
+  - "Use HTTP-only secure cookies for auth."
+
+# ---------------------------------------------------------
+# 10. STYLING RULES
+# ---------------------------------------------------------
+Styling:
+  - "Prefer TailwindCSS or CSS modules."
+  - "Use classnames or twMerge for conditional classes."
+  - "Avoid inline styles except for small transforms."
+  - "Avoid global CSS except base styles."
+
+# ---------------------------------------------------------
+# 11. TESTING RULES
+# ---------------------------------------------------------
+Testing:
+  - "Use Vitest or Jest + Testing Library."
+  - "Test keyboard navigation, focus, interactions."
+  - "Mock server APIs with MSW when possible."
+  - "Include at least one test per feature module."
+
+Example test:
+  |
+    render(<Drawer menu={menu} open />);
+    userEvent.tab();
+    expect(screen.getByRole('menu')).toBeInTheDocument();
+
+# ---------------------------------------------------------
+# 12. DOCUMENTATION RULES
+# ---------------------------------------------------------
+Documentation:
+  - "Every exported component must include example usage."
+  - "Document props clearly."
+  - "Provide accessibility notes."
+  - "Provide server vs client usage notes."
+
+# ---------------------------------------------------------
+# 13. AI MUST-NOT RULES
+# ---------------------------------------------------------
+DoNot:
+  - "Do NOT generate or suggest credentials, API keys, tokens."
+  - "Do NOT create fake secrets in .env."
+  - "Do NOT convert server components to client components unnecessarily."
+  - "Do NOT fetch data client-side unless required."
+  - "Do NOT create heavy dependencies without justification."
+  - "Do NOT break routing conventions or file structure."
+
+# ---------------------------------------------------------
+# 14. GIT / COMMIT RULES
+# ---------------------------------------------------------
+Git:
+  - "Use conventional commits: feat:, fix:, refactor:, chore:, docs:, style:, test:."
+  - "Commit only working code; avoid commented-out blocks."
+
+# ---------------------------------------------------------
+# 15. FINAL CHECKLIST BEFORE GENERATING CODE
+# ---------------------------------------------------------
+Checklist:
+  - "Is this a Server or Client component? Choose correctly."
+  - "Are TypeScript types defined?"
+  - "Is accessibility fully implemented?"
+  - "Is this optimized for Next.js performance?"
+  - "Does this follow RSC rules (no browser-only APIs in server code)?"
+  - "Are secrets excluded?"
+  - "Are API inputs validated?"
+  - "Is the code modular and maintainable?"
+
+# ---------------------------------------------------------
+# END OF FILE
+# ---------------------------------------------------------
