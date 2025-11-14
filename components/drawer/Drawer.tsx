@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import type { DrawerProps, DrawerItem } from "@/types/menu";
 import { DrawerMenu } from "./DrawerMenu";
 
@@ -16,9 +16,28 @@ import { DrawerMenu } from "./DrawerMenu";
  * />
  * ```
  */
-export function Drawer({ menu, open, onClose, width = 320, className }: DrawerProps) {
+export function Drawer({ menu, open, onClose, width, className }: DrawerProps) {
   const [menuHistory, setMenuHistory] = useState<DrawerItem[][]>([menu]);
   const currentMenu = menuHistory[menuHistory.length - 1];
+
+  // Prevent body scroll when drawer is open (mobile)
+  useEffect(() => {
+    if (open) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "";
+    }
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, [open]);
+
+  // Reset menu history when drawer closes
+  useEffect(() => {
+    if (!open) {
+      setMenuHistory([menu]);
+    }
+  }, [open, menu]);
 
   const handleItemClick = (item: DrawerItem) => {
     if (item.children && item.children.length > 0) {
@@ -52,10 +71,10 @@ export function Drawer({ menu, open, onClose, width = 320, className }: DrawerPr
         aria-hidden="true"
       />
 
-      {/* Drawer */}
+      {/* Drawer - Mobile-first: full width on mobile, custom width on desktop */}
       <div
-        className="absolute right-0 top-0 h-full bg-white shadow-xl"
-        style={{ width: `${width}px` }}
+        className="absolute left-0 top-0 h-full w-full bg-white shadow-xl md:w-[85vw] md:max-w-md"
+        style={width ? { width: `${width}px` } : undefined}
       >
         <DrawerMenu
           items={currentMenu}

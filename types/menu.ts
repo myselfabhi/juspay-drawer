@@ -6,6 +6,8 @@ export interface DrawerItem {
   id: string;
   /** Display label for the menu item */
   label: string;
+  /** Optional description text shown below the label */
+  description?: string;
   /** Optional icon to display before the label */
   icon?: React.ReactNode;
   /** Optional nested children menu items */
