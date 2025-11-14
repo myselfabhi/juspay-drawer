@@ -37,7 +37,27 @@
             "label": "Technical Consulting",
             "description": "Architecture and implementation guidance",
             "icon": "code",
-            "onClick": "navigateToTechnicalConsulting"
+            "children": [
+              {
+                "id": "technical-1",
+                "label": "System Architecture",
+                "description": "Scalable system design and planning",
+                "icon": "server",
+                "onClick": "navigateToSystemArchitecture"
+              },
+              {
+                "id": "technical-2",
+                "label": "Performance Optimization",
+                "description": "Application and system optimization",
+                "icon": "zap"
+              },
+              {
+                "id": "technical-3",
+                "label": "Security Audits",
+                "description": "Comprehensive security assessments",
+                "icon": "cybersecurity"
+              }
+            ]
           },
           {
             "id": "consulting-2",
